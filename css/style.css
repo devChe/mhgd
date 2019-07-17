@@ -1,0 +1,333 @@
+@font-face {
+  font-family: ProximaAltBold;
+  src: url("../fonts/proxima_ssv/ProximaAltBold.otf");
+}
+@font-face {
+  font-family: ProximaAltLight;
+  src: url("../fonts/proxima_ssv/ProximaAltLightt.otf");
+}
+@font-face {
+  font-family: ProximaAltThin;
+  src: url("../fonts/proxima_ssv/ProximaAltThin.otf");
+}
+@font-face {
+  font-family: ProximaBlack;
+  src: url("../fonts/proxima_ssv/ProximaBlack.otf");
+}
+@font-face {
+  font-family: FuturaLight;
+  src: url("../fonts/Futura Fresh/FuturaLight.otf");
+}
+@font-face {
+  font-family: ProximaBold;
+  src: url("../fonts/proxima_ssv/ProximaBold.otf");
+}
+@font-face {
+  font-family: ProximaExtraBold;
+  src: url("../fonts/proxima_ssv/ProximaExtraBold.otf");
+}
+@font-face {
+  font-family: ProximaRegular;
+  src: url("../fonts/proxima_ssv/ProximaRegular.otf");
+}
+@font-face {
+  font-family: ProximaThin;
+  src: url("../fonts/proxima_ssv/ProximaThin.otf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+* a {
+  color: #000;
+  text-decoration: none;
+}
+body {
+  overflow: hidden;
+}
+background-color #fbfbfb,
+.loader {
+  position: fixed;
+  height: 100vh;
+  z-index: 99;
+  width: 100%;
+}
+background-color #fbfbfb .top-side,
+.loader .top-side,
+background-color #fbfbfb .down-side,
+.loader .down-side {
+  background: #111;
+  height: 50%;
+  width: 100%;
+  transition: 1s;
+  transition-timing-function: ease;
+}
+background-color #fbfbfb .top-side.active,
+.loader .top-side.active {
+  transform: translateY(-100%);
+}
+background-color #fbfbfb .down-side.active,
+.loader .down-side.active {
+  transform: translateY(100%);
+}
+background-color #fbfbfb .line,
+.loader .line {
+  width: 1px;
+  background-color: #fff;
+  opacity: 0.5;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 150px;
+  transition: 2s;
+  transform: translateY(100%);
+}
+background-color #fbfbfb .line.active,
+.loader .line.active {
+  transform: translateY(-100%);
+}
+background-color #fbfbfb .count,
+.loader .count {
+  transition: 1s;
+  opacity: 1;
+  font-family: FuturaLight;
+  position: fixed;
+  color: #fbfbfb;
+  font-size: 100px;
+  top: 30%;
+  left: 20%;
+}
+.top-expand {
+  overflow: hidden;
+}
+.top-expand .nav {
+  z-index: 2;
+  background: #000;
+  transform: scaleY(0.3) translateX(-10px);
+  height: 114px;
+  position: fixed;
+  right: 0;
+  width: 42px;
+  top: 0;
+  transition: 0.3s;
+}
+.top-expand .zmdi-menu {
+  z-index: 3;
+  position: fixed;
+  top: 42px;
+  right: 17px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+.top-expand.active .nav {
+  transform: scaleY(1) translateX(0);
+  width: 100%;
+  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+}
+.top-expand.white {
+  color: #111;
+}
+.top-expand.white .nav {
+  background: #fff;
+}
+.top-expand.white .zmdi-menu {
+  color: #111;
+}
+.top-expand .logo-menu {
+  position: absolute;
+  top: 35px;
+  left: 10px;
+}
+.top-expand .logo-menu >img {
+  object-fit: contain;
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  width: 285px;
+  filter: none;
+  transform: translateY(35px);
+  opacity: 0;
+}
+.top-expand .logo-menu.active >img {
+  transition: 1s;
+  opacity: 1;
+  transform: translateY(0);
+}
+.top-expand .logo-menu.white >img {
+  filter: invert(1);
+}
+.top-expand .menu {
+  display: flex;
+  position: absolute;
+  height: 114px;
+  z-index: -1;
+  color: #fff;
+  top: 0;
+  right: 0;
+  width: 100%;
+  justify-content: flex-end;
+  font-family: FuturaLight;
+}
+.top-expand .menu >ul {
+  list-style: none;
+  display: flex;
+  margin-right: 100px;
+  margin-top: 40px;
+}
+.top-expand .menu >ul >li {
+  margin: 0 20px;
+  opacity: 0;
+  pointer-events: none;
+  cursor: pointer;
+}
+.top-expand .menu >ul >li >.zmdi {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.top-expand .menu >ul .contact {
+  transition: 0.3s;
+}
+.top-expand .menu >ul .about {
+  transition: 0.5s;
+}
+.top-expand .menu >ul .project {
+  transition: 0.7s;
+}
+.top-expand .menu.active {
+  z-index: 2;
+}
+.top-expand .menu.active >ul >li {
+  opacity: 1;
+  pointer-events: auto;
+}
+.top-expand .menu.white {
+  color: #111;
+}
+.canvas {
+  position: relative;
+  top: 0;
+  z-index: 1;
+  background-color: #fbfbfb;
+  width: 100vw;
+  height: 100vh;
+  transform: translate3d(0, 0, 0);
+  transition: 0.3s;
+}
+.canvas.menu-active {
+  top: 114px;
+}
+.canvas .home {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+}
+.canvas .home .slick-list {
+  height: 100%;
+}
+.canvas .home .slick-list .slick-track {
+  height: 100%;
+}
+.canvas .home .home-car {
+  height: 100%;
+  width: 100%;
+}
+.canvas .home .home-car .img-container {
+  height: 100%;
+  width: 100%;
+}
+.canvas .home .home-car .img-container:focus {
+  outline: none;
+}
+.canvas .home .home-car .img-container .home-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.canvas .home .home-car .img-container .short-desc {
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  background: #111;
+  font-family: FuturaLight;
+  padding: 5px 30px;
+  letter-spacing: 5px;
+  font-size: 13px;
+}
+.canvas .home .home-car .img-container .short-desc.white {
+  background: #fff;
+  color: #111;
+}
+.canvas .home .home-car .img-container .short-desc .style {
+  opacity: 0.5;
+}
+.canvas .home .car-next {
+  position: absolute;
+  background: #111;
+  bottom: 45%;
+  right: 10px;
+  padding: 7px 15px;
+  font-size: 25px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.canvas .home .car-next.white {
+  color: #111;
+  background: #fff;
+}
+.canvas .home .car-previous {
+  display: none;
+  position: absolute;
+  background: #111;
+  bottom: 45%;
+  left: 10px;
+  padding: 7px 15px;
+  font-size: 25px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.canvas .home .car-previous.white {
+  color: #111;
+  background: #fff;
+}
+.logo-container {
+  display: flex;
+  position: relative;
+  z-index: 10;
+  height: 120px;
+  padding: 10px 10px 0;
+  align-items: start;
+  transition: 0.3s;
+}
+.logo-container.white img {
+  filter: invert(1);
+}
+.logo-container .logo {
+  height: 100%;
+  object-fit: contain;
+}
+.logo-container .logo img {
+  height: 100%;
+}
+.nav i {
+  font-size: 30px;
+}
+.content {
+  font-family: ProximaRegular;
+  color: #333;
+  margin: 50px 300px;
+  font-size: 14px;
+  line-height: 1.6em;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  font-style: normal;
+}
+.content .social {
+  text-decoration: underline;
+}

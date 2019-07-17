@@ -1,0 +1,303 @@
+@font-face {
+  font-family: ProximaAltBold;
+  src: url(../fonts/proxima_ssv/ProximaAltBold.otf);
+}
+
+@font-face {
+  font-family: ProximaAltLight;
+  src: url(../fonts/proxima_ssv/ProximaAltLightt.otf);
+}
+
+@font-face {
+  font-family: ProximaAltThin;
+  src: url(../fonts/proxima_ssv/ProximaAltThin.otf);
+}
+
+@font-face {
+  font-family: ProximaBlack;
+  src: url(../fonts/proxima_ssv/ProximaBlack.otf);
+}
+
+@font-face {
+  font-family: FuturaLight;
+  src: url('../fonts/Futura Fresh/FuturaLight.otf');
+}
+
+
+@font-face {
+  font-family: ProximaBold;
+  src: url(../fonts/proxima_ssv/ProximaBold.otf);
+}
+
+@font-face {
+  font-family: ProximaExtraBold;
+  src: url(../fonts/proxima_ssv/ProximaExtraBold.otf);
+}
+
+@font-face {
+  font-family: ProximaRegular;
+  src: url(../fonts/proxima_ssv/ProximaRegular.otf);
+}
+
+@font-face {
+  font-family: ProximaThin;
+  src: url(../fonts/proxima_ssv/ProximaThin.otf);
+}
+
+
+main = ProximaRegular
+menu = FuturaLight
+
+
+*
+    margin 0
+    padding 0
+    box-sizing border-box
+    a
+        color black
+        text-decoration none
+
+body
+    overflow hidden
+	background-color #fbfbfb
+    
+
+
+.loader
+	position fixed
+	height 100vh
+	z-index 99
+	width 100%
+	.top-side, .down-side
+		background #111111
+		height 50%
+		width 100%
+		transition 1s
+		transition-timing-function ease
+	.top-side.active
+		transform translateY(-100%)
+	.down-side.active
+		transform translateY(100%)
+	.line
+		width 1px
+		background-color white
+		opacity .5
+		height 100%
+		position fixed
+		top 0
+		left 150px
+		transition 2s
+		transform translateY(100%)
+		&.active
+			transform translateY(-100%)
+	.count
+		transition 1s
+		opacity 1
+		font-family FuturaLight
+		position fixed
+		color #fbfbfb
+		font-size 100px
+		top 30%
+		left 20%
+
+.top-expand
+	overflow hidden
+	.nav
+		z-index 2
+		background black
+		transform scaleY(0.3) translateX(-10px)
+		height 114px
+		position fixed
+		right 0
+		width 42px
+		top 0
+		transition .3s
+	.zmdi-menu
+		z-index 3
+		position fixed
+		top 42px
+		right 17px
+		font-size 30px
+		color white
+		cursor pointer
+	&.active
+		.nav
+			transform scaleY(1) translateX(0)
+			width 100%
+			transition-timing-function cubic-bezier(0.7,0,0.3,1)
+	&.white
+		color #111
+		.nav
+			background white
+		.zmdi-menu
+			color #111
+	.logo-menu
+		position absolute
+		top 35px
+		left 10px
+		>img
+			object-fit contain
+			position absolute
+			z-index 3
+			left 0
+			top 0
+			width 285px
+			filter none
+			transform translateY(35px)
+			opacity 0
+		&.active
+			>img
+				transition 1s
+				opacity 1
+				transform translateY(0)
+		&.white
+			>img 
+				filter invert(1)				
+	.menu
+		display flex
+		position absolute
+		height 114px
+		z-index -1
+		color white
+		top 0
+		right 0
+		width 100%
+		justify-content flex-end
+		font-family menu
+		>ul
+			list-style none
+			display flex
+			margin-right 100px
+			margin-top 40px
+			>li
+				margin 0 20px
+				opacity 0
+				pointer-events none
+				cursor pointer
+				>.zmdi
+					display block
+					width 100%
+					text-align center
+			.contact
+				transition .3s
+			.about
+				transition .5s
+			.project
+				transition .7s
+		&.active
+			z-index 2
+			>ul
+				>li
+					opacity 1
+					pointer-events auto
+		&.white
+			color #111
+			
+  
+.canvas
+	position relative
+	top 0
+	z-index 1
+	background-color #fbfbfb
+	width 100vw
+	height 100vh
+	transform translate3d(0, 0, 0)
+	transition .3s
+	&.menu-active
+		top 114px
+	.home
+		position absolute
+		height 100vh
+		width 100%
+		top 0
+		.slick-list
+			height 100%
+			.slick-track
+				height 100%
+		.home-car
+			height 100%
+			width 100%
+			.img-container
+				height 100%
+				width 100%
+				&:focus
+					outline none
+				.home-img
+					height 100%
+					width 100%
+					object-fit cover
+				.short-desc
+					position absolute
+					bottom 0
+					color #fff
+					background #111111
+					font-family FuturaLight
+					padding 5px 30px
+					letter-spacing 5px
+					font-size 13px
+					&.white
+						background #fff
+						color #111
+					.style
+						opacity .5
+		.car-next
+			position absolute
+			background #111
+			bottom 45%
+			right 10px
+			padding 7px 15px
+			font-size 25px
+			color #fff
+			cursor pointer
+			transition .3s
+			&.white
+				color #111
+				background #fff
+		.car-previous
+			display none
+			position absolute
+			background #111
+			bottom 45%
+			left 10px
+			padding 7px 15px
+			font-size 25px
+			color #fff
+			cursor pointer
+			transition .3s
+			&.white
+				color #111
+				background #fff
+.logo-container
+	display flex
+	position relative
+	z-index 10
+	height 120px
+	padding 10px 10px 0
+	align-items start
+	transition .3s
+	&.white
+		img
+			filter invert(1)
+	.logo
+		height 100%
+		object-fit contain
+		img
+			height 100%
+.nav
+    i 
+        font-size 30px
+
+.content
+    font-family main
+    color #333
+    margin 50px 300px
+    font-size 14px
+    line-height 1.6em
+    letter-spacing .5px
+    font-weight 400
+    font-style normal
+    .social
+        text-decoration underline
+
+
+			
